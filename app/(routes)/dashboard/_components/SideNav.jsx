@@ -10,18 +10,17 @@ const SideNav = () => {
         { id:1, name:'Dashboard', icon:LayoutGrid, path:"/dashboard" },
         { id:2, name:'Budgets', icon:PiggyBank, path:"/dashboard/budgets" },
         { id:3, name:"Expenses", icon:ReceiptText, path:"/dashboard/expenses" },
-        { id:4, name:"Upgrade", icon:ShieldCheck, path:"/dashboard/upgrade" }
+        { id:4, name:"About", icon:ShieldCheck, path:"/dashboard/about" }
     ]
 
     const path = usePathname()
 
-    useEffect(()=>{
-        console.log(path)
-    },[])
+
     
     return (
         <div className='h-screen p-5 border shadow-sm'>
-            <h2 className='text-xl font-semibold'><span className='font-bold text-primary text-2xl'>Ex</span>pense Tracker</h2>
+            <Link href={"/"}>
+            <h2 className='text-xl font-semibold'><span className='font-bold text-primary text-2xl'>Ex</span>pense Tracker</h2></Link>
 
             <div className='mt-5'>
                 {menuList.map((menu) => (

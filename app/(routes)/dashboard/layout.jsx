@@ -1,8 +1,33 @@
-import React from 'react'
+"use client"
+
+import React, { useEffect } from 'react'
 import SideNav from './_components/SideNav'
 import DashboardHeader from './_components/DashboardHeader'
+import { Budgets } from '@/utils/schema'
+import { eq } from 'drizzle-orm'
+import { useUser } from '@clerk/nextjs'
+import { db } from '@/utils/dbConfig'
+import { useRouter } from 'next/navigation'
 
 const DashboardLayout = ({children}) => {
+
+  const {user} = useUser()
+
+  const router = useRouter();
+
+
+  useEffect(()=>{
+    checkeUserBudget();
+  },[user])
+
+  const checkeUserBudget = async() =>{
+    const result = await db.select().from(Budgets).
+    where(eq(Budgets.createdBy,user?.primaryEmailAddress?.emailAddress))
+
+    if(result?.length==0 && user){
+      router.replace('/dashboard/budgets')
+    }
+  }
   return (
     <div className=''>
         <div className='fixed md:w-64 hidden md:block '>
