@@ -19,7 +19,6 @@
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "class-variance-authority": "^0.7.1",
-    "className-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.7",
@@ -38,7 +37,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
-    "drizzle-kit": "^0.31.6",
+    "drizzle-kit": "^0.18.1",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "postcss": "^8.5.6",
